@@ -23,7 +23,7 @@ The code involves 3 main codes for 3 different ways to control a Pinball machine
 ## Credits
 This project contains sounds that I did not produce.
 
-The "game over.wav" file was downloaded from this YouTube video by "Sumit - FOXITOGO" (@foxitogoextra9418):\
+The `game over.wav` file was downloaded from this YouTube video by "Sumit - FOXITOGO" (@foxitogoextra9418):\
 Arcade Retro Game Over - Sound Effect (Final Cut) | https://www.youtube.com/watch?v=FVJJKIJWKdc \
 I cannot find it elsewhere, but I'm not certain this was the original creator. Do notify me if you know the original creator.
 
