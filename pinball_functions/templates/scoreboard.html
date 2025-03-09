@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinball Scoreboard</title>
+
+    <!-- Link to Google Fonts for Bungee Spice, New Amsterdam, and Teko -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=New+Amsterdam&family=Teko:wght@300..700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #2d3a4a; /* Dark blueish gray */
+            color: #F1C40F; /* Yellow (Lego color) */
+            font-family: 'Teko', sans-serif; /* Default font set to Teko */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .scoreboard-container {
+            text-align: center;
+            background-color: #34495E;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            border: 3px solid #F1C40F;
+            width: 800px;
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        #score {
+            font-size: 15rem;
+            font-weight: bold;
+            color: #F1C40F;
+            text-shadow: 6px 6px 8px rgba(0, 0, 0, 0.7);
+            margin-top: -30px;
+            position: relative;
+            display: none; /* Initially hidden */
+        }
+
+        .score-section {
+            margin-top: -75px;
+            font-size: 3rem;
+            color: #F1C40F;
+            display: none; /* Initially hidden */
+        }
+
+        .highscore {
+            font-size: 6rem;
+            font-weight: bold;
+            color: #FF6347;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6);
+            position: absolute;
+            top: -20px; /* Move it upwards to overlap with the score */
+        }
+
+        .game-status {
+            margin-top: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .restart-button {
+            padding: 15px 30px;
+            background-color: #506a83;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            border-radius: 12px;
+            margin-top: 0px;
+            display: none; /* Initially hidden */
+        }
+
+        .restart-button:hover {
+            background-color: #4d6882;
+        }
+
+        /* Game Over Message Styling */
+        .game-over-message {
+            font-size: 5rem; /* Large font size for "Game Over" */
+            font-weight: bold;
+            color: #FF6347; /* Red color for game over */
+            text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.6);
+            position: absolute; /* Position it over the score area */
+            top: 0px; /* Adjust positioning to ensure it overlaps with score */
+            left: 50%;
+            transform: translateX(-50%);
+            display: none; /* Initially hidden */
+            padding-bottom: 75px; /* Add bottom padding to create space */
+        }
+
+        .corner-button {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #F1C40F; /* Yellow (Lego color) */
+            border: none;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        .corner-button:hover {
+            background-color: #e1b700;
+        }
+
+        .start-button {
+            padding: 15px 30px;
+            background-color: #506a83;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            border-radius: 12px;
+        }
+
+        .start-button:hover {
+            background-color: #4d6882;
+        }
+    </style>
+
+    <script>
+        // Update score and game state every second
+        function updateScore() {
+            fetch('/get_score')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('score').innerText = data.score;
+                    document.getElementById('highscore').innerText = data.highscore || "0";
+
+                    if (data.gameState === "Game Over") {
+                        document.getElementById('restart-button').style.display = "inline-block"; 
+                        document.getElementById('game-over-message').style.display = "block"; // Show Game Over message
+                    } else {
+                        document.getElementById('restart-button').style.display = "none"; 
+                        document.getElementById('game-over-message').style.display = "none"; // Hide it when game is not over
+                    }
+                });
+        }
+
+        // Restart the game
+        function restartGame() {
+            fetch('/new_game')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('score').innerText = data.score;
+                    document.getElementById('restart-button').style.display = "none"; 
+                    document.getElementById('game-over-message').style.display = "none"; // Hide the Game Over message when game restarts
+                    document.getElementById('start-button').style.display = "none"; // Hide the Start Game button
+                    document.getElementById('score').style.display = "block"; // Show the score
+                    document.querySelector('.score-section').style.display = "block"; // Show the high score section
+                });
+        }
+
+        function endGame() {
+            fetch('/end_game')
+                .then(response => response.json())
+                .then(() => {
+                    document.getElementById('score').style.display = "none"; // Hide the score
+                    document.querySelector('.score-section').style.display = "none"; // Hide the high score section
+                    document.getElementById('restart-button').style.display = "none"; // Hide the Restart Game button
+                    document.getElementById('game-over-message').style.display = "none"; // Hide the Game Over message
+                    document.getElementById('start-button').style.display = "inline-block"; // Show the Start Game button
+                });
+        }
+
+        setInterval(updateScore, 100);
+    </script>
+</head>
+<body>
+    <div class="scoreboard-container">
+        <div id="score">0</div>
+        <div class="score-section">
+            <span>High Score: </span><span id="highscore">0</span>
+        </div>
+        <div class="game-over-message" id="game-over-message">Game Over</div>
+        <button class="restart-button" id="restart-button" onclick="restartGame()">Restart Game</button>
+        <button class="start-button" id="start-button" onclick="restartGame()">Start Game</button>
+    </div>
+    <button class="corner-button" id="corner-button" onclick="endGame()"></button>
+</body>
+</html>
